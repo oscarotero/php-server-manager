@@ -11,15 +11,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/oscarotero/php-server.git"
+    "url": "git+https://github.com/oscarotero/php-server-manager.git"
   },
   "keywords": [
     "php",
     "server"
   ],
-  "homepage": "https://github.com/oscarotero/php-server#readme",
+  "homepage": "https://github.com/oscarotero/php-server-manager#readme",
   "bugs": {
-    "url": "https://github.com/oscarotero/php-server/issues"
+    "url": "https://github.com/oscarotero/php-server-manager/issues"
   },
   "devDependencies": {
     "mocha": "^4.0.1",

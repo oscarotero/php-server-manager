@@ -11,7 +11,7 @@ yarn add php-server-manager
 ## Usage
 
 ```js
-const PHPServer = require('php-server');
+const PHPServer = require('php-server-manager');
 
 const server = new PHPServer();
 
@@ -33,7 +33,7 @@ Name | Default | Description
 Example:
 
 ```js
-const PHPServer = require('php-server');
+const PHPServer = require('php-server-manager');
 
 const server = new PHPServer({
     port: 3000,
