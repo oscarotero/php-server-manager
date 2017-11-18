@@ -1,5 +1,5 @@
 {
-  "name": "php-server",
+  "name": "php-server-manager",
   "version": "1.0.0",
   "description": "Manage PHP built-in servers in node",
   "main": "index.js",

@@ -1,6 +1,12 @@
-# PHP Server
+# PHP Server Manager
 
 Package to manage the PHP built-in server from node.
+
+## Install
+
+```
+yarn add php-server-manager
+```
 
 ## Usage
 
@@ -52,5 +58,3 @@ gulp.task('php-server', () => {
     server.run();
 });
 ```
-
-
