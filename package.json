@@ -1,0 +1,28 @@
+{
+  "name": "php-server",
+  "version": "1.0.0",
+  "description": "Manage PHP built-in servers in node",
+  "main": "index.js",
+  "author": "Oscar Otero",
+  "license": "MIT",
+  "scripts": {
+    "test": "mocha tests/index.js",
+    "prettier": "prettier test/*.js index.js --single-quote --tab-width 4 --write"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oscarotero/php-server.git"
+  },
+  "keywords": [
+    "php",
+    "server"
+  ],
+  "homepage": "https://github.com/oscarotero/php-server#readme",
+  "bugs": {
+    "url": "https://github.com/oscarotero/php-server/issues"
+  },
+  "devDependencies": {
+    "mocha": "^4.0.1",
+    "prettier": "^1.8.2"
+  }
+}
