@@ -3,7 +3,7 @@ const PHPServer = require('../');
 
 describe('Command builder', function () {
     it('Default command', function () {
-        assert.equal('php -S localhost:8000', (new PHPServer()).toString());
+        assert.equal('php -S 127.0.0.1:8000', (new PHPServer()).toString());
     });
 
     it('Default command', function () {

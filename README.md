@@ -23,7 +23,7 @@ server.run(); // http://localhost:8000
 Name | Default | Description
 -----|---------|------------
 `php` | `php` | The php command file
-`host` | `localhost` | The server's host
+`host` | `127.0.0.1` | The server's host
 `port` | `8000` | The port used
 `directory` | `null` | The document root. By default is the current working directory
 `script` | `null` | The "router" script
@@ -49,12 +49,12 @@ server.run();
 ## Use with gulp
 
 ```js
-gulp.task('php-server', () => {
+gulp.task('php-server', done => {
     const server = new PHPServer({
         directory: 'public',
         script: 'public/index.php'
     });
 
-    server.run();
+    server.run(done);
 });
 ```

@@ -1,14 +1,16 @@
 const spawn = require('child_process').spawn;
+const http = require('http');
 
 module.exports = class PHPServer {
     constructor(config) {
         this.php = 'php';
-        this.host = 'localhost';
+        this.host = '127.0.0.1';
         this.port = 8000;
         this.directory = null;
         this.script = null;
         this.directives = {};
         this.config = null;
+        this.env = process.env;
 
         if (config) {
             Object.keys(config).forEach(name => {
@@ -46,15 +48,20 @@ module.exports = class PHPServer {
         return params;
     }
 
-    run() {
+    run(cb) {
         this.process = spawn(this.php, this.getParameters(), {
-            stdio: 'inherit'
+            stdio: 'inherit',
+            env: this.env
         });
 
         this.process.on('close', () => console.log('PHP Server closed'));
         this.process.on('error', error =>
             console.error('PHP Server error', error)
         );
+
+        if (cb) {
+            checkServer(this.host, this.port, cb);
+        }
     }
 
     close() {
@@ -70,3 +77,30 @@ module.exports = class PHPServer {
         return `${this.php} ${this.getParameters().join(' ')}`;
     }
 };
+
+function checkServer(host, port, cb) {
+    let init = false;
+
+    setTimeout(function runCheck() {
+        http
+            .request(
+                {
+                    method: 'HEAD',
+                    hostname: host,
+                    port: port
+                },
+                function(res) {
+                    init = true;
+                    return cb();
+                }
+            )
+            .on('error', function(err) {
+                if (init) {
+                    return;
+                }
+                console.error('PHP server not started. Retrying...');
+                setTimeout(runCheck, 100);
+            })
+            .end();
+    }, 100);
+}
