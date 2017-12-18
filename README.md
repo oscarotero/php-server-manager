@@ -29,6 +29,7 @@ Name | Default | Description
 `script` | `null` | The "router" script
 `directives` | `{}` | An object with the custom PHP directives
 `config` | `null` | The path of a custom php.ini file
+`env` | `process.env` | The environment variables passed
 
 Example:
 

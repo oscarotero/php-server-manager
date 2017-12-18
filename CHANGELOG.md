@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 
 - The function `run()` accepts a callback as first argument, executed when the server is started.
+- New option `env` to pass environment variables to the child process.
 
 ### Fixed
 
