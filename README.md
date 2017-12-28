@@ -15,8 +15,12 @@ const PHPServer = require('php-server-manager');
 
 const server = new PHPServer();
 
-server.run(); // http://localhost:8000
+server.run(cb); // http://localhost:8000
 ```
+
+## Callback vs Promise
+
+You can pass a callback to the run method, this will get called when the PHP server is up and running. If you don't pass a callback to the run method, a promise will be returned that resolves when the PHP server is up and running.
 
 ## Configuration
 

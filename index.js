@@ -61,6 +61,16 @@ module.exports = class PHPServer {
 
         if (cb) {
             checkServer(this.host, this.port, cb);
+        } else {
+            return new Promise((resolve, reject) => {
+                try {
+                    checkServer(this.host, this.port, () => {
+                        resolve()
+                    })
+                } catch (e) {
+                    reject(e)
+                }
+            })
         }
     }
 
