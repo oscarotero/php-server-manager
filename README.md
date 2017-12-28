@@ -27,6 +27,7 @@ Name | Default | Description
 `port` | `8000` | The port used
 `directory` | `null` | The document root. By default is the current working directory
 `script` | `null` | The "router" script
+`quiet` | `false` | Optionally hide output from the PHP process
 `directives` | `{}` | An object with the custom PHP directives
 `config` | `null` | The path of a custom php.ini file
 `env` | `process.env` | The environment variables passed
