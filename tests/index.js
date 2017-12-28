@@ -8,7 +8,7 @@ describe('Command builder', function () {
 
     it('Default command', function () {
         assert.equal(
-            './php -S 0.0.0.0:3000 -t /my-dir -d display_errors=0 -d expose_php=0 -c /my-config.ini /my-dir/index.php',
+            './php -S 0.0.0.0:3000 /my-dir/index.php -t /my-dir -d display_errors=0 -d expose_php=0 -c /my-config.ini',
             (new PHPServer({
                 php: './php',
                 host: '0.0.0.0',
