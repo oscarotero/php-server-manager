@@ -26,10 +26,6 @@ module.exports = class PHPServer {
     getParameters() {
         const params = ['-S', `${this.host}:${this.port}`];
 
-        if (this.script) {
-            params.push(this.script);
-        }
-
         if (this.directory) {
             params.push('-t');
             params.push(this.directory);
@@ -43,6 +39,10 @@ module.exports = class PHPServer {
         if (this.config) {
             params.push('-c');
             params.push(this.config);
+        }
+
+        if (this.script) {
+            params.push(this.script);
         }
 
         return params;
