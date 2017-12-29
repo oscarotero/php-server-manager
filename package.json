@@ -1,6 +1,6 @@
 {
   "name": "php-server-manager",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Manage PHP built-in servers in node",
   "main": "index.js",
   "author": "Oscar Otero",

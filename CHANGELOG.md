@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) 
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.2.0] - 2017-12-29
+
+### Added
+
+- New option `stdio` to configure the stdio passed to the spawned process.
+
+### Changed
+
+- If no callback is passed, the `run()` method returns a promise that resolves when the PHP server is up and running.
+
+### Fixed
+
+- Reorder script and other cli options because the script must be declared after the options.
+
 ## [1.1.0] - 2017-12-18
 
 ### Added
@@ -20,4 +34,5 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 First version with basic features.
 
+[1.2.0]: https://github.com/oscarotero/php-server-manager/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/oscarotero/php-server-manager/compare/v1.0.0...v1.1.0
