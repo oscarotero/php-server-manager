@@ -27,7 +27,7 @@ Name | Default | Description
 `port` | `8000` | The port used
 `directory` | `null` | The document root. By default is the current working directory
 `script` | `null` | The "router" script
-`quiet` | `false` | Optionally hide output from the PHP process
+`stdio` | `inherit` | stdio option passed to the spawned process - https://nodejs.org/api/child_process.html#child_process_options_stdio
 `directives` | `{}` | An object with the custom PHP directives
 `config` | `null` | The path of a custom php.ini file
 `env` | `process.env` | The environment variables passed

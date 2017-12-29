@@ -10,7 +10,7 @@ module.exports = class PHPServer {
         this.script = null;
         this.directives = {};
         this.config = null;
-        this.quiet = false;
+        this.stdio = 'inherit';
         this.env = process.env;
 
         if (config) {
@@ -51,7 +51,7 @@ module.exports = class PHPServer {
 
     run(cb) {
         this.process = spawn(this.php, this.getParameters(), {
-            stdio: this.quiet ? 'ignore' : 'inherit',
+            stdio: this.stdio,
             env: this.env
         });
 
