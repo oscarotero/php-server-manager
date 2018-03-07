@@ -52,15 +52,21 @@ const server = new PHPServer({
 server.run();
 ```
 
+## Quick use
+
+You can use the static function `start()` to create and run a PHPServer in a single line:
+
+```js
+PHPServer.start();
+```
+
 ## Use with gulp
 
 ```js
-gulp.task('php-server', done => {
-    const server = new PHPServer({
+gulp.task('php-server', () =>
+    PHPServer.start({
         directory: 'public',
         script: 'public/index.php'
-    });
-
-    server.run(done);
-});
+    })
+);
 ```

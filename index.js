@@ -2,6 +2,12 @@ const spawn = require('child_process').spawn;
 const http = require('http');
 
 module.exports = class PHPServer {
+    static start(config, cb) {
+        const server = new PHPServer(config);
+
+        return server.run(cb);
+    }
+
     constructor(config) {
         this.php = 'php';
         this.host = '127.0.0.1';
@@ -61,17 +67,15 @@ module.exports = class PHPServer {
         );
 
         if (cb) {
-            checkServer(this.host, this.port, cb);
+            checkServer(this.host, this.port, () => cb(this));
         } else {
             return new Promise((resolve, reject) => {
                 try {
-                    checkServer(this.host, this.port, () => {
-                        resolve()
-                    })
+                    checkServer(this.host, this.port, () => resolve(this));
                 } catch (e) {
-                    reject(e)
+                    reject(e);
                 }
-            })
+            });
         }
     }
 
