@@ -25,7 +25,11 @@ module.exports = class PHPServer {
                     throw new Error(`Config ${name} is not valid`);
                 }
 
-                this[name] = config[name];
+                if (name === 'env') {
+                    this[name] = Object.assign({}, this[name], config[name]);
+                } else {
+                    this[name] = config[name];
+                }
             });
         }
     }
