@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) 
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.3.3] - 2019-09-03
+### Fixed
+- The server checking callback was not executed always
+
 ## [1.3.2] - 2019-09-02
 ### Fixed
 - Any error returned by the server initialization checking retry a new checking. Now only the error `ECONNREFUSED` makes a new attempt, to avoid infinite loop.
