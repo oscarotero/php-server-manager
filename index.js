@@ -98,27 +98,20 @@ module.exports = class PHPServer {
 };
 
 function checkServer(host, port, cb) {
-    let init = false;
-
     setTimeout(function runCheck() {
-        http
-            .request(
-                {
-                    method: 'HEAD',
-                    hostname: host,
-                    port: port
-                },
-                function(res) {
-                    init = true;
-                    return cb();
+        http.request(
+            {
+                method: 'HEAD',
+                hostname: host,
+                port: port
+            },
+            () => cb()
+        )
+            .on('error', err => {
+                if (err.code === 'ECONNREFUSED') {
+                    console.error('PHP server not started. Retrying...');
+                    setTimeout(runCheck, 100);
                 }
-            )
-            .on('error', function(err) {
-                if (init) {
-                    return;
-                }
-                console.error('PHP server not started. Retrying...');
-                setTimeout(runCheck, 100);
             })
             .end();
     }, 100);
